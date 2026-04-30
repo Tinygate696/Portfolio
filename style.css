@@ -1,0 +1,130 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #050505; /* Deep black background */
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- LIQUID BACKGROUND ANIMATION --- */
+.liquid-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    filter: blur(60px); /* This makes the shapes blend like liquid */
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    animation: move 15s infinite alternate ease-in-out;
+    opacity: 0.8;
+}
+
+/* Electric Cyan Blob */
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: #00f0ff;
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+/* Vibrant Magenta Blob */
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: #ff0055;
+    bottom: -20%;
+    right: -10%;
+    animation-delay: -5s;
+}
+
+/* Deep Purple Blob */
+.blob-3 {
+    width: 350px;
+    height: 350px;
+    background: #7a00ff;
+    top: 40%;
+    left: 40%;
+    animation-delay: -10s;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(150px, 100px) scale(1.2); }
+    100% { transform: translate(-100px, 200px) scale(0.9); }
+}
+
+/* --- GLASSMORPHISM FOREGROUND --- */
+.glass-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.glass-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.glass-header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.glass-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* The Glass Card Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03); /* Extremely transparent white */
+    backdrop-filter: blur(16px); /* The frosted glass magic */
+    -webkit-backdrop-filter: blur(16px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle glowing edge */
+    border-radius: 20px;
+    padding: 2rem;
+    min-height: 250px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Drop shadow for depth */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glass-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.glass-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
